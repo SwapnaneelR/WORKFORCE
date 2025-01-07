@@ -59,13 +59,13 @@ const Navbar = () => {
         {/* Navigation Links - Hidden on small screens */}
         <div className="hidden lg:flex space-x-4 items-center">
           <Link href="/blogs">
-            <p className="hover:text-gray-400">Blogs</p>
+            <p className="  hover:font-semibold">Blogs</p>
           </Link>
           <Link href="/about">
-            <p className="hover:text-gray-200">About</p>
+            <p className="  hover:font-semibold">About</p>
           </Link>
           <Link href="/contact">
-            <p className="hover:text-gray-400">Contact</p>
+            <p className="  hover:font-semibold">Contact</p>
           </Link>
         </div>
         {/* Signup/Login Buttons - Hidden on small screens */}
@@ -91,13 +91,13 @@ const Navbar = () => {
                 <SheetTitle>WORKFORCE</SheetTitle>
                 <div className="space-y-4">
                   <Link href="/blogs">
-                    <div className="hover:text-gray-400">Blogs</div>
+                    <text className="hover:text-gray-400">Blogs</text>
                   </Link>
                   <Link href="/about">
-                    <div className="hover:text-gray-200">About</div>
+                    <text className="hover:text-gray-200">About</text>
                   </Link>
                   <Link href="/contact">
-                    <div className="hover:text-gray-400">Contact</div>
+                    <text className="hover:text-gray-400">Contact</text>
                   </Link>
                   <Button className="w-full mt-4" variant="outline">
                     Signup
