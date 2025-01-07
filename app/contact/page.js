@@ -1,22 +1,26 @@
 // pages/contact.js
 import React from "react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 const Contact = () => {
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="text-center mb-10">
         <h1 className="text-6xl font-bold">Contact Us</h1>
-        <p className="mt-5 text-lg ">
+        <p className="mt-5 text-lg">
           We would love to hear from you! Fill out the form below or reach out
-          via email : neel26ray@gmail.com
+          via email :{" "}
+          <a href="mailto:neel26ray@gmail.com" className="underline">
+            neel26ray@gmail.com
+          </a>
         </p>
       </div>
 
-      <div className="max-w-2xl mx-auto pt-0 px-8 rounded-lg shadow-md">
+      <div className="max-w-xl mx-auto pt-0 px-8 rounded-lg shadow-md">
         <form action="#" method="POST">
-          <div className="space-y-6">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium ">
+          <div className="space-y-5">
+            <div className="">
+              <label htmlFor="name" className="block text-lg font-medium ">
                 Your Name
               </label>
               <input
@@ -29,7 +33,7 @@ const Contact = () => {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium ">
+              <label htmlFor="email" className="block text-lg font-medium ">
                 Your Email
               </label>
               <input
@@ -42,7 +46,7 @@ const Contact = () => {
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-medium ">
+              <label htmlFor="message" className="block text-lg font-medium ">
                 Your Message
               </label>
               <textarea
