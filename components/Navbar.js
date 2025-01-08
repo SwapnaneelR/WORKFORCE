@@ -89,7 +89,7 @@ const Navbar = () => {
             <SheetContent>
               <SheetHeader>
                 <SheetTitle>WORKFORCE</SheetTitle>
-                <div className="space-y-4">
+                <div className="space-y-4 flex flex-col">
                   <Link href="/blogs">
                     <text className="hover:text-gray-400">Blogs</text>
                   </Link>

@@ -7,7 +7,7 @@ const About = () => {
   return (
     <div className="min-h-screen flex flex-col items-center py-12 px-6">
       <div className="max-w-4xl w-full text-center">
-        <h1 className="text-6xl font-semibold mb-8">WORKFORCE</h1>
+        <h2 className=" text-3xl md:text-6xl font-bold mb-8">WORKFORCE</h2>
         <p className="text-lg leading-7 mb-8">
           Welcome to <span className="font-semibold">WORKFORCE</span>, your
           ultimate destination for empowering ideas and collaborative insights.
@@ -52,8 +52,8 @@ const About = () => {
       <div className="mt-12 text-center">
         <h2 className="text-2xl font-bold mb-4">Join the Revolution</h2>
         <p className="leading-6">
-          Ready to take your ideas to the next level? Join the WORKFORCE
-          community today and redefine the way you create and collaborate.
+          Ready to take your ideas to the next level? Join the community today
+          and redefine the way you create and collaborate.
         </p>
         <Link href={"/"}>
           <Button className="p-5 mt-4 font-semibold ">Get Started</Button>
