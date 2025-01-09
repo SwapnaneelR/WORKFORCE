@@ -1,7 +1,8 @@
 // pages/index.js
+"use client";
 import React from "react";
 import Link from "next/link";
-import Image from "next/image"; // Import Image component
+import Image from "next/image";
 import {
   Carousel,
   CarouselContent,
@@ -51,10 +52,6 @@ const Home = () => {
       <TestimonialsPage />
     </>
   );
-};
-
-const PricingPage = () => {
-  <video src=""></video>;
 };
 
 const TestimonialsPage = () => {

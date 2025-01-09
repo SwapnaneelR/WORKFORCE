@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import Background from "@/components/ui/Background";
+import { SessionProvider } from "next-auth/react";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -30,10 +31,13 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
-          <Background>
-            <Navbar />
-            {children}
-          </Background>
+          <SessionProvider>
+            {" "}
+            <Background>
+              <Navbar />
+              {children}
+            </Background>
+          </SessionProvider>
         </ThemeProvider>
       </body>
     </html>

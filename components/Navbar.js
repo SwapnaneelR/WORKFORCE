@@ -1,6 +1,9 @@
 "use client";
 // components/Navbar.js
 import Link from "next/link";
+// import { signIn } from "@/auth";
+import SignIn from "./Signin";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -10,6 +13,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { signOut, useSession } from "next-auth/react";
 
 import * as React from "react";
 import { Moon, MoonIcon, Sun } from "lucide-react";
@@ -19,6 +23,8 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
@@ -50,6 +56,38 @@ function ModeToggle() {
 }
 
 const Navbar = () => {
+  const session = useSession();
+  function ImageDropdown() {
+    return (
+      <>
+        <DropdownMenu>
+          <DropdownMenuTrigger>
+            {" "}
+            {session.data?.user?.image && (
+              <Image
+                src={session.data.user.image}
+                alt={session.data?.user?.name?.charAt(0) || "User"}
+                height={40}
+                width={40}
+                className="my-0 mx-3 items-center rounded-full"
+              />
+            )}
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuItem>Profile</DropdownMenuItem>
+
+            <DropdownMenuItem>Blog</DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem onClick={signOut} className="items-center">
+              Logout
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </>
+    );
+  }
+
+  console.log(session);
   return (
     <nav className="p-4 background/50 sticky border-b top-0 backdrop-blur">
       <div className="flex justify-between items-center mx-auto container">
@@ -70,13 +108,19 @@ const Navbar = () => {
         </div>
         {/* Signup/Login Buttons - Hidden on small screens */}
         <div className="hidden lg:flex">
-          <ModeToggle />
-          <Button className="mx-2" variant="outline">
+          <ModeToggle className="items-center" />
+          {/* <Button className="mx-2" variant="outline">
             Signup
-          </Button>
-          <Button className="mx-2" variant="outline">
-            Login
-          </Button>
+          </Button> */}
+          {session?.data == null ? (
+            <SignIn />
+          ) : (
+            <>
+              <div className="flex flex-row justify-center">
+                <ImageDropdown />
+              </div>
+            </>
+          )}
         </div>
         {/* Menu Button - Visible only on small screens */}
         <div className="md:hidden flex items-center">
@@ -99,12 +143,7 @@ const Navbar = () => {
                   <Link href="/contact">
                     <text className="hover:text-gray-400">Contact</text>
                   </Link>
-                  <Button className="w-full mt-4" variant="outline">
-                    Signup
-                  </Button>
-                  <Button className="w-full mt-2" variant="outline">
-                    Login
-                  </Button>
+                  <SignIn></SignIn>
                 </div>
               </SheetHeader>
             </SheetContent>
