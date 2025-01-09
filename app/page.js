@@ -14,7 +14,7 @@ import {
 const Home = () => {
   return (
     <>
-      <main className="min-h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-16 ">
+      <main className="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-16">
         {/* Left Section: Text and Buttons */}
         <div className="md:w-1/2 mx-6 text-center md:text-left mb-12 md:mb-0">
           <h1 className="text-5xl font-bold mb-6">Welcome to WORKFORCE</h1>
