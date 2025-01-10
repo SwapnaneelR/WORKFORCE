@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import Background from "@/components/ui/Background";
 import { SessionProvider } from "next-auth/react";
+import "easymde/dist/easymde.min.css";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],

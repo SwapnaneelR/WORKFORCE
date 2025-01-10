@@ -5,7 +5,7 @@ import Link from "next/link";
 const Contact = () => {
   return (
     <div className="container mx-auto px-4 py-12">
-      <div className="text-center mb-10">
+      <div className="text-center ">
         <h1 className="text-6xl font-bold">Contact Us</h1>
         <p className="mt-5 text-lg">
           We would love to hear from you! Fill out the form below or reach out
@@ -14,6 +14,18 @@ const Contact = () => {
             neel26ray@gmail.com
           </a>
         </p>
+        <a
+          href="https://patreon.com/Swapnaneel"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button
+            type="button"
+            className="p-2 mt-3 bg-green-600 text-white rounded"
+          >
+            Sponsor Workforce
+          </button>
+        </a>
       </div>
 
       <div className="max-w-xl mx-auto pt-0 px-8 rounded-lg shadow-md">
@@ -58,7 +70,7 @@ const Contact = () => {
               ></textarea>
             </div>
 
-            <div className="text-center">
+            <div className="text-center gap-x-3 flex items-center justify-center">
               <Button type="submit">Send Message</Button>
             </div>
           </div>
