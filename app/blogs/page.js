@@ -40,7 +40,7 @@ const Page = async () => {
                 </div>
 
                 <div className="px-6 py-4">
-                  <Link href={`/blogs/${post.title.toLowerCase()}`}>
+                  <Link href={`/blogs/${post._id}`}>
                     <Button>Explore</Button>
                   </Link>
                 </div>

@@ -38,7 +38,6 @@ export const blog = defineType({
     defineField({
       name: "image",
       type: "url",
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "playground",

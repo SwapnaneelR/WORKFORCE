@@ -89,7 +89,7 @@ const Navbar = () => {
 
   console.log(session);
   return (
-    <nav className="p-4 background/50 sticky border-b top-0 backdrop-blur">
+    <nav className="p-4 background/50 z-10 sticky border-b top-0 backdrop-blur">
       <div className="flex justify-between items-center mx-auto container">
         <Link href="/" className="text-xl font-bold">
           WORKFORCE
