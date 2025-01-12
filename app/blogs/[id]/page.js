@@ -52,7 +52,7 @@ export default async function Page({ params }) {
         {/* Playground Section */}
         <section className="rounded-lg  shadow-lg p-6">
           <div
-            className="prose max-w-4xl prose-invert prose-h1:font-bold prose-h1:text-3xl prose-h2:font-semibold prose-h2:text-2xl prose-h3:font-medium prose-h3:text-xl prose-p:text-base prose-p:leading-7 prose-a:text-blue-500 prose-a:underline prose-ul:list-disc prose-ol:list-decimal prose-li:ml-6 text-zinc-100 font-mono p-10 break-words font-work-sans"
+            className="prose max-w-4xl prose-invert prose-h1:font-bold prose-h1:text-3xl prose-h2:font-semibold prose-h2:text-2xl prose-h3:font-medium prose-h3:text-xl prose-p:text-base prose-p:leading-7 prose-a:text-blue-300 prose-a:underline prose-ul:list-disc prose-ol:list-decimal prose-li:ml-6 text-zinc-100 font-mono p-10 break-words font-work-sans"
             dangerouslySetInnerHTML={{ __html: content }}
           />
         </section>
