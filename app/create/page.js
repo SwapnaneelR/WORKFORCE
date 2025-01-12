@@ -1,7 +1,15 @@
+import { redirect } from "next/navigation";
 import React from "react";
-
-const page = () => {
-  return <div className="min-h-screen">Start Typing ..</div>;
+import { auth } from "@/auth";
+import UserForm from "@/components/ui/UserForm";
+const page = async () => {
+  const session = await auth();
+  if (!session) redirect(url("/"));
+  return (
+    <div className="min-h-screen">
+      <UserForm></UserForm>
+    </div>
+  );
 };
 
 export default page;

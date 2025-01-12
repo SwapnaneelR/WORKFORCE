@@ -76,7 +76,9 @@ const Navbar = () => {
           <DropdownMenuContent>
             <DropdownMenuItem>Profile</DropdownMenuItem>
 
-            <DropdownMenuItem>Blog</DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link href="/blogs">Blogs</Link>
+            </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem onClick={signOut} className="items-center">
               Logout
@@ -96,31 +98,33 @@ const Navbar = () => {
         </Link>
         {/* Navigation Links - Hidden on small screens */}
         <div className="hidden lg:flex space-x-4 items-center">
-          <Link href="/blogs">
-            <p className="  hover:font-semibold">Blogs</p>
-          </Link>
-          <Link href="/about">
-            <p className="  hover:font-semibold">About</p>
-          </Link>
-          <Link href="/contact">
-            <p className="  hover:font-semibold">Contact</p>
+          <Link href="/blogs" className=" hover:font-semibold">
+            Blogs
+          </Link>{" "}
+          <Link href="/about" className=" hover:font-semibold">
+            About
+          </Link>{" "}
+          <Link href="/contact" className=" hover:font-semibold">
+            Contact
           </Link>
         </div>
         {/* Signup/Login Buttons - Hidden on small screens */}
-        <div className="hidden lg:flex">
-          <ModeToggle className="items-center" />
-          {/* <Button className="mx-2" variant="outline">
-            Signup
-          </Button> */}
-          {session?.data == null ? (
-            <SignIn />
-          ) : (
-            <>
-              <div className="flex flex-row justify-center">
-                <ImageDropdown />
-              </div>
-            </>
-          )}
+        <div className="hidden lg:flex justify-evenly gap-3">
+          <Link href="/create">
+            <Button className="rounded-full">+ Create Magic </Button>
+          </Link>
+          <ModeToggle />
+          <div>
+            {session?.data == null ? (
+              <SignIn />
+            ) : (
+              <>
+                <div className="flex flex-row justify-center">
+                  <ImageDropdown />
+                </div>
+              </>
+            )}
+          </div>
         </div>
         {/* Menu Button - Visible only on small screens */}
         <div className="md:hidden flex items-center">
@@ -134,14 +138,14 @@ const Navbar = () => {
               <SheetHeader>
                 <SheetTitle>WORKFORCE</SheetTitle>
                 <div className="space-y-4 flex flex-col">
-                  <Link href="/blogs">
-                    <text className="hover:text-gray-400">Blogs</text>
+                  <Link href="/blogs" className="hover:text-gray-400">
+                    Blogs
                   </Link>
-                  <Link href="/about">
-                    <text className="hover:text-gray-200">About</text>
+                  <Link href="/about" className="hover:text-gray-400">
+                    About
                   </Link>
-                  <Link href="/contact">
-                    <text className="hover:text-gray-400">Contact</text>
+                  <Link href="/contact" className="hover:text-gray-400">
+                    Contact
                   </Link>
                   <SignIn></SignIn>
                 </div>

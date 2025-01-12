@@ -10,6 +10,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { auth } from "@/auth";
 
 const Home = () => {
   return (
