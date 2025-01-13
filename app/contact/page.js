@@ -71,7 +71,9 @@ const Contact = () => {
             </div>
 
             <div className="text-center gap-x-3 flex items-center justify-center">
-              <Button type="submit">Send Message</Button>
+              <Link href="/">
+                <Button type="submit">Send Message</Button>
+              </Link>
             </div>
           </div>
         </form>

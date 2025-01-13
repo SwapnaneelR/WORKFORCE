@@ -74,7 +74,9 @@ const Navbar = () => {
             )}
           </DropdownMenuTrigger>
           <DropdownMenuContent>
-            <DropdownMenuItem>Profile</DropdownMenuItem>
+            <Link href={`/user/${session?.data?.id}`}>
+              <DropdownMenuItem>Profile</DropdownMenuItem>
+            </Link>
 
             <DropdownMenuItem>
               <Link href="/blogs">Blogs</Link>

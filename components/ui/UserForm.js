@@ -103,9 +103,9 @@ export default function UserForm() {
           >
             <option value="">Select a category</option>
             <option value="Technology">Technology</option>
-            <option value="Health">Education</option>
-            <option value="Education">Lifestyle</option>
-            <option value="Lifestyle">Health</option>
+            <option value="Education">Education</option>
+            <option value="Lifestyle">Lifestyle</option>
+            <option value="Health">Health</option>
           </select>
         </div>
 

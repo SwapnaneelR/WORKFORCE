@@ -2,6 +2,7 @@ import BackButton from "@/components/ui/BackButton";
 import { POST_ID_QUERY } from "@/sanity/lib/queries";
 import { client } from "@/sanity/lib/client";
 import Image from "next/image";
+import Link from "next/link";
 import MarkdownIt from "markdown-it";
 import View from "@/components/ui/View";
 export default async function Page({ params }) {
@@ -37,9 +38,12 @@ export default async function Page({ params }) {
               </h1>
               <p className="text-lg text-zinc-100 mb-6">{post.description}</p>
               <div className="flex items-center gap-x-4">
-                <span className="mr-4 font-semibold text-zinc-100 text-xl">
+                <Link
+                  href={`/user/${post.author?._id}`}
+                  className="mr-4 font-semibold text-zinc-100 text-xl"
+                >
                   Author : {post?.author?.name || post?.author?.username}
-                </span>
+                </Link>
                 <View id={id}></View>
               </div>
             </div>
@@ -50,9 +54,9 @@ export default async function Page({ params }) {
         </section>
 
         {/* Playground Section */}
-        <section className="rounded-lg  shadow-lg p-6">
+        <section className="rounded-lg shadow-lg  p-14">
           <div
-            className="prose max-w-4xl prose-invert prose-h1:font-bold prose-h1:text-3xl prose-h2:font-semibold prose-h2:text-2xl prose-h3:font-medium prose-h3:text-xl prose-p:text-base prose-p:leading-7 prose-a:text-blue-300 prose-a:underline prose-ul:list-disc prose-ol:list-decimal prose-li:ml-6 text-zinc-100 font-mono p-10 break-words font-work-sans"
+            className="prose max-w-5xl prose-invert prose-h1:font-bold prose-h1:text-3xl prose-h2:font-semibold prose-h2:text-2xl prose-h3:font-medium prose-h3:text-xl prose-p:text-base prose-p:leading-7 prose-a:text-blue-300 prose-a:underline prose-ul:list-disc prose-ol:list-decimal prose-li:ml-6 text-zinc-100 font-mono p-10 break-words font-work-sans"
             dangerouslySetInnerHTML={{ __html: content }}
           />
         </section>

@@ -24,13 +24,13 @@ const Page = async () => {
                     : post.category == "Lifestyle"
                       ? `url(/Lifestyle.jpg)`
                       : post.category == "Education"
-                        ? `url(/Education.jpg)`
+                        ? `url(/lifelabel.jpg)`
                         : post.category == "Health"
                           ? `url(/Health.jpg)`
-                          : `url(/lifelabel.jpg)`,
+                          : `url(/Education.jpg)`,
               }}
             >
-              <div className="bg-black bg-opacity-40 w-[350px] h-[220px] flex flex-col justify-between">
+              <div className="bg-black bg-opacity-60 w-[350px] h-[220px] flex flex-col justify-between">
                 <div className="px-6 py-2 text-white">
                   <h2 className="font-bold text-2xl mb-2">{post.title}</h2>
                   <p className="text-sm">{post.description}</p>
