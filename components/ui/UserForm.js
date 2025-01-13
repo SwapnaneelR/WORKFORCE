@@ -102,10 +102,10 @@ export default function UserForm() {
             className="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-blue-200"
           >
             <option value="">Select a category</option>
-            <option value="Technology">tech</option>
-            <option value="Health">general</option>
-            <option value="Education">Education</option>
-            <option value="Lifestyle">Lifestyle</option>
+            <option value="Technology">Technology</option>
+            <option value="Health">Education</option>
+            <option value="Education">Lifestyle</option>
+            <option value="Lifestyle">Health</option>
           </select>
         </div>
 

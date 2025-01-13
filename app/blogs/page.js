@@ -19,11 +19,15 @@ const Page = async () => {
               className="w-full p-5 bg-cover bg-center"
               style={{
                 backgroundImage:
-                  post.category == "Tech"
-                    ? `url(/lifelabel.jpg)`
-                    : post.category == "Interview"
-                      ? `url(/interviewlabel.jpg)`
-                      : "none",
+                  post.category == "Technology"
+                    ? `url(/Tech.jpg)`
+                    : post.category == "Lifestyle"
+                      ? `url(/Lifestyle.jpg)`
+                      : post.category == "Education"
+                        ? `url(/Education.jpg)`
+                        : post.category == "Health"
+                          ? `url(/Health.jpg)`
+                          : `url(/lifelabel.jpg)`,
               }}
             >
               <div className="bg-black bg-opacity-40 w-[350px] h-[220px] flex flex-col justify-between">

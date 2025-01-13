@@ -49,6 +49,7 @@ export const Playground = () => {
     // Add further handling logic here, e.g., API call to save the blog
     const result = await createPost(fullData);
     console.log(result);
+    router.push("/blogs");
   };
   return (
     <div className="max-w-4xl mx-auto mt-4 p-5 rounded-lg shadow-2xl">
