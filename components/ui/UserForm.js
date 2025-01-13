@@ -1,8 +1,7 @@
 "use client";
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Button } from "./button";
-import { Link } from "lucide-react";
+import { useRouter } from "next/navigation";
 export default function UserForm() {
   const [formData, setFormData] = useState({
     title: "",
@@ -10,32 +9,53 @@ export default function UserForm() {
     category: "",
   });
 
+  const [error, setError] = useState("");
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
+  const router = useRouter();
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Form validation
+    if (!formData.title || !formData.category) {
+      setError("Title and Category are required.");
+      return;
+    }
+
+    setError(""); // Clear error if validation passes
     console.log("Form Data Submitted:", formData);
-    // Add logic to handle the form submission, e.g., API call
+
+    // Set cookie to indicate form is filled
+    document.cookie = "formFilled=true; path=/";
+
+    // Navigate to the editor page
+    router.push("/create/editor");
   };
 
   return (
-    <div className="flex items-center font-semibold justify-center min-h-screen  ">
+    <div className="flex items-center font-semibold justify-center min-h-screen">
       <form
         onSubmit={handleSubmit}
         style={{
           backgroundImage: `url(./logo.jpg)`,
         }}
-        className="w-full p-10 max-w-md   rounded-lg shadow-md"
+        className="w-full p-10 max-w-md rounded-lg shadow-md"
       >
-        <h2 className="mb-6 text-5xl font-bold  text-zinc-800 text-center">
+        <h2 className="mb-6 text-5xl font-bold text-zinc-800 text-center">
           Create Post
         </h2>
 
+        {error && (
+          <p className="mb-4 text-red-500 text-center text-sm">{error}</p>
+        )}
+
         <div className="mb-4">
-          <label htmlFor="title" className="block mb-2 text-xl text-semibold  ">
+          <label htmlFor="title" className="block mb-2 text-xl font-semibold">
             Blog Title
           </label>
           <input
@@ -52,7 +72,7 @@ export default function UserForm() {
         <div className="mb-4">
           <label
             htmlFor="description"
-            className="block mb-2 text-xl text-semibold  "
+            className="block mb-2 text-xl font-semibold"
           >
             Description
           </label>
@@ -70,7 +90,7 @@ export default function UserForm() {
         <div className="mb-4">
           <label
             htmlFor="category"
-            className="block mb-2 text-semibold text-xl   "
+            className="block mb-2 text-xl font-semibold"
           >
             Category
           </label>
@@ -82,10 +102,10 @@ export default function UserForm() {
             className="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-blue-200"
           >
             <option value="">Select a category</option>
-            <option value="Technology">Tech</option>
-            <option value="Health">Interview</option>
+            <option value="Technology">Technology</option>
+            <option value="Health">Health</option>
             <option value="Education">Education</option>
-            <option value="Lifestyle">General</option>
+            <option value="Lifestyle">Lifestyle</option>
           </select>
         </div>
 

@@ -4,7 +4,9 @@ import { auth } from "@/auth";
 import UserForm from "@/components/ui/UserForm";
 const page = async () => {
   const session = await auth();
-  if (!session) redirect(url("/"));
+  if (!session) {
+    redirect("/");
+  }
   return (
     <div className="min-h-screen">
       <UserForm></UserForm>

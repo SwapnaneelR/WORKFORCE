@@ -13,6 +13,7 @@ import {
 import { auth } from "@/auth";
 
 const Home = () => {
+  document.cookie = "formFilled=false";
   return (
     <>
       <main className="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-16">
