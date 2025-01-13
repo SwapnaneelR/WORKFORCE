@@ -32,7 +32,7 @@ export default function UserForm() {
 
     // Set cookie to indicate form is filled
     document.cookie = "formFilled=true; path=/";
-
+    document.cookie = `formData=${JSON.stringify(formData)}; path=/;`;
     // Navigate to the editor page
     router.push("/create/editor");
   };
@@ -102,8 +102,8 @@ export default function UserForm() {
             className="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-blue-200"
           >
             <option value="">Select a category</option>
-            <option value="Technology">Technology</option>
-            <option value="Health">Health</option>
+            <option value="Technology">tech</option>
+            <option value="Health">general</option>
             <option value="Education">Education</option>
             <option value="Lifestyle">Lifestyle</option>
           </select>

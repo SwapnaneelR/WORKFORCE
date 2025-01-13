@@ -7,7 +7,7 @@ import View from "@/components/ui/View";
 export default async function Page({ params }) {
   const id = (await params).id;
   const post = await client.fetch(POST_ID_QUERY, { id });
-  const no = Math.floor(Math.random() * 5) + 1;
+  var no = Math.floor(Math.random() * 5) + 1;
   const md = MarkdownIt();
   if (!post) {
     console.log("Post not found");
@@ -38,7 +38,7 @@ export default async function Page({ params }) {
               <p className="text-lg text-zinc-100 mb-6">{post.description}</p>
               <div className="flex items-center gap-x-4">
                 <span className="mr-4 font-semibold text-zinc-100 text-xl">
-                  Author : {post.author.name}
+                  Author : {post?.author?.name || post?.author?.username}
                 </span>
                 <View id={id}></View>
               </div>
