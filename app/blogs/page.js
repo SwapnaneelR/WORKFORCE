@@ -32,19 +32,21 @@ const Page = async () => {
             >
               <div className="bg-black bg-opacity-60 w-[350px] h-[220px] flex flex-col justify-between">
                 <div className="px-6 py-2 text-white">
-                  <h2 className="font-bold text-2xl mb-2">{post.title}</h2>
-                  <p className="text-sm">{post.description}</p>
+                  <h2 className="font-bold text-2xl mb-2">{post?.title}</h2>
+                  <p className="text-sm">{post?.description}</p>
                 </div>
 
                 <div className="px-6 pt-4 pb-2 flex justify-between items-center text-white">
-                  <span className="text-sm">{formatDate(post._createdAt)}</span>
+                  <span className="text-sm">
+                    {formatDate(post?._createdAt)}
+                  </span>
                   <span className="text-sm p-2 font-semibold">
-                    {post.views} views
+                    {post?.views} views
                   </span>
                 </div>
 
                 <div className="px-6 py-4">
-                  <Link href={`/blogs/${post._id}`}>
+                  <Link href={`/blogs/${post?._id}`}>
                     <Button>Explore</Button>
                   </Link>
                 </div>
