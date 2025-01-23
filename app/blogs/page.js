@@ -1,31 +1,59 @@
+"use client";
+import { useState, useEffect } from "react";
+import { client } from "@/sanity/lib/client";
+import { QUERY } from "@/sanity/lib/queries";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { formatDate } from "@/lib/utils";
-import { client } from "@/sanity/lib/client";
-import { QUERY } from "@/sanity/lib/queries";
 
-const Page = async () => {
-  const posts = await client.fetch(QUERY);
+const Page = () => {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const fetchedPosts = await client.fetch(QUERY);
+        setPosts(fetchedPosts);
+      } catch (err) {
+        console.error("Error fetching posts:", err);
+        setError("Failed to fetch blogs. Please try again later.");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchPosts();
+    console.log(posts);
+  }, [posts]);
+
+  if (loading)
+    return (
+      <p className="min-h-screen  items-center justify-center text-4xl">
+        Loading...
+      </p>
+    );
+  if (error) return <p>{error}</p>;
 
   return (
     <main className="min-h-screen p-4">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {posts.map((post, index) => (
+        {posts.map((post) => (
           <div
-            key={index}
-            className="max-w-sm  h-[250px] w-[500px] rounded-md shadow-4xl shadow-blue-500 overflow-hidden shadow-lg m-4"
+            key={post._id}
+            className="max-w-sm h-[250px] w-[500px] rounded-md shadow-4xl shadow-blue-500 overflow-hidden shadow-lg m-4"
           >
             <div
               className="w-full p-5 bg-cover bg-center"
               style={{
                 backgroundImage:
-                  post.category == "Technology"
+                  post.category === "Technology"
                     ? `url(/Tech.jpg)`
-                    : post.category == "Lifestyle"
+                    : post.category === "Lifestyle"
                       ? `url(/Lifestyle.jpg)`
-                      : post.category == "Education"
+                      : post.category === "Education"
                         ? `url(/lifelabel.jpg)`
-                        : post.category == "Health"
+                        : post.category === "Health"
                           ? `url(/Health.jpg)`
                           : `url(/Education.jpg)`,
               }}
